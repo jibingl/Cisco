@@ -13,7 +13,7 @@ logging on                              #Re-enable logging
 ```
 configure terminal
 logging buffered [size][level]          #Logs messages to an internal buffer 
-logging [host]                          #Logs messages to a external syslog server
+logging <host-ip>                       #Logs messages to a external syslog server/host
 logging console [level]                 #Display messages to the console (enabled by defualt)
 terminal monitor                        #Display messages to a non-console terminal (eg,SSH) during the current session
 ```
@@ -35,9 +35,9 @@ terminal monitor                        #Display messages to a non-console termi
 ##### Configure Cisco devices:
   ```
   configure terminal
-  logging [host]
+  logging <host-ip>
   logging trap [level0-7]
-  logging facility [faxility-type]          #The default-type is local7
+  logging facility {facility-type}          #The default-type is local7
   end
   no logging                                #Remove a syslog server
   no logging trap                           #Disable logging to syslog servers
