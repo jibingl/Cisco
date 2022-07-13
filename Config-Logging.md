@@ -4,18 +4,20 @@
 Notes: Enable and disable logging on Cisco devices. By defualt, logging is enabled. Disabling message logging is actually stop a logging process to which log messages are sent. So, all log messages need to be written to the console instead, which will slow dwon devices.
 Disable logging:
 ```
-configure terminal
-no logging on                           #Disable logging
-logging on                              #Re-enable logging
+SW1(config)#no logging on                          //Disable logging
+SW1(config)#logging on                             //Re-enable logging
 ```
 ---
 ### Display log messages onto different destination devices/screens
 ```
-configure terminal
-logging buffered [size][level]          #Logs messages to an internal buffer 
-logging <host-ip>                       #Logs messages to a external syslog server/host
-logging console [level]                 #Display messages to the console (enabled by defualt)
-terminal monitor                        #Display messages to a non-console terminal (eg,SSH) during the current session
+SW1(config)#logging console [level]                 //Display messages to the console (enabled by defualt) 
+SW1(config)#logging monitor                         //Display messages to a non-console terminal (eg,SSH) during the current session
+ OR
+SW1(config)#terminal monitor                        //Same as above
+SW1(config)#logging buffered [size] [level]         //Logs messages to an internal buffer
+SW1(config)#logging <host-ip>                       //Logs messages to a external syslog server/host
+ OR
+SW1(config)#logging host <host-ip>
 ```
 ---
 ### Configure logging messages to an external Syslog server
@@ -34,11 +36,10 @@ terminal monitor                        #Display messages to a non-console termi
   ```
 ##### Configure Cisco devices:
   ```
-  configure terminal
-  logging <host-ip>
-  logging trap [level0-7]
-  logging facility {facility-type}          #The default-type is local7
-  end
-  no logging                                #Remove a syslog server
-  no logging trap                           #Disable logging to syslog servers
+  SW1(config)#logging <host-ip>
+  SW1(config)#logging trap [level0-7]
+  SW1(config)#logging facility {facility-type}          #The default-type is local7
+  
+  SW1(config)#no logging                                #Remove a syslog server
+  SW1(config)#no logging trap                           #Disable logging to syslog servers
   ```
