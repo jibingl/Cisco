@@ -45,3 +45,9 @@ SW1(config)#logging host <host-ip>
   SW1(config)#no logging                                #Remove a syslog server
   SW1(config)#no logging trap                           #Disable logging to syslog servers
   ```
+### Useful cmd
+To prevent from interrupting by logging messages during typing a command, use `logging synchronous` on the appropriate _line_.  
+For example, use the cmd on _console line_:
+```
+R1(config)#line console 0
+R1(config-line)#logging synchronous
