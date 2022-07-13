@@ -17,9 +17,9 @@ SW1(config)#terminal monitor                        //Display logging messages o
 
 SW1(config)#logging buffered [size] [level]         //Logs to an internal buffer. Enabled by default
 
-SW1(config)#logging <host-ip>                       //Logs to a external syslog server/host
+SW1(config)#logging <server-ip>                       //Logs to a external syslog server/host
  OR
-SW1(config)#logging host <host-ip>
+SW1(config)#logging host <server-ip>
 ```
 ---
 ### Configure logging messages to an external Syslog server
@@ -38,12 +38,12 @@ SW1(config)#logging host <host-ip>
   ```
 ##### Configure Cisco devices:
   ```
-  SW1(config)#logging <host-ip>
+  SW1(config)#logging <server-ip>
   SW1(config)#logging trap [level0-7]
-  SW1(config)#logging facility {facility-type}          #The default-type is local7
+  SW1(config)#logging facility {facility-type}          //The default-type is local7
   
-  SW1(config)#no logging                                #Remove a syslog server
-  SW1(config)#no logging trap                           #Disable logging to syslog servers
+  SW1(config)#no logging                                //Remove a syslog server
+  SW1(config)#no logging trap                           //Disable logging to syslog servers
   ```
 ### Useful cmd
 To prevent from interrupting by logging messages during typing a command, use `logging synchronous` on the appropriate _line_.  
@@ -51,3 +51,9 @@ For example, use the cmd on _console line_:
 ```
 R1(config)#line console 0
 R1(config-line)#logging synchronous
+```
+Set _seqence_ and _time stamp_
+```
+R1(config)#service timestamp log [datetime | uptime]   
+R1(config)#service sequence-numbers                     //Enable sequence number being added to logs
+```
