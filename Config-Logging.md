@@ -8,14 +8,16 @@ SW1(config)#no logging on                          //Disable logging
 SW1(config)#logging on                             //Re-enable logging
 ```
 ---
-### Display log messages onto different destination devices/screens
+### Log & Display logging messages onto different destination devices/screens
 ```
-SW1(config)#logging console [level]                 //Display messages to the console (enabled by defualt) 
-SW1(config)#logging monitor                         //Display messages to a non-console terminal (eg,SSH) during the current session
- OR
-SW1(config)#terminal monitor                        //Same as above
-SW1(config)#logging buffered [size] [level]         //Logs messages to an internal buffer
-SW1(config)#logging <host-ip>                       //Logs messages to a external syslog server/host
+SW1(config)#logging console [level]                 //Logs to the console. Enabled by defualt 
+
+SW1(config)#logging monitor                         //Logs to a non-console terminal (eg,SSH) during the current session. Enabled by default
+SW1(config)#terminal monitor                        //Display logging messages on the current non-console session
+
+SW1(config)#logging buffered [size] [level]         //Logs to an internal buffer. Enabled by default
+
+SW1(config)#logging <host-ip>                       //Logs to a external syslog server/host
  OR
 SW1(config)#logging host <host-ip>
 ```
