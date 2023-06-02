@@ -23,7 +23,9 @@
   Begin the Xmodem or Xmodem-1K transfer now...
   CCC
   ```
-4️⃣ Check results, reverse the searial-rate and re-boot switch.
+4️⃣ From the terminal (TeraTerm) main manu select **File > Transfer > XMODEM > Send**, then chose your .bin file to start transission.
+
+5️⃣ Check results, reverse the searial-rate and re-boot switch.
   ```
   File "xmodem:" successfully copied to "Flash:c2960-lanbasek9-150-2.ie10.bin"
   switch: dir flash:
@@ -31,7 +33,7 @@
   switch: boot flash:c2960-lanbasek9-150-2.ie10.bin
   Loading "flash:c2960-lanbasek9-150-2.ie10.bin"...@@@@@@@@@@@@@@@@@@@@@@@@@
   ```
-5️⃣ Enter config mode and set the system boot image.
+6️⃣ Enter config mode and set the system boot image.
   ```
   switch>enable
   switch#configure terminal
