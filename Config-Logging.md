@@ -36,8 +36,8 @@ SW1(config)#logging host <server-ip>
    **#1** - Directly modify the _/etc/rsyslog.conf_ configuration file.  
         Add the below lines to instruct **rsyslog** to accecpt and how to save log messages from cisco devices.
    	```
-	$tmeplate CiscoLog, "/var/log/cisco/%HOSTNAME%.log"
-	local7.debug ?CiscoLog
+	$template	CiscoLog, "/var/log/cisco/%HOSTNAME%.log"
+	local7.debug	?CiscoLog
 	```
 	Uncommit the following lines as shown below:
 	```
@@ -48,8 +48,8 @@ SW1(config)#logging host <server-ip>
    **#2** - Create your own configuration file under _/etc/ryslog.d/_ folder. **rsyslog** will load all configuration files in the folder.  
 	Include all below lines in your configuration file (e.g. remotelogs.conf).  
 	```
-	$tmeplate CiscoLog, "/var/log/cisco/%HOSTNAME%.log"
-	local7.debug ?CiscoLog
+	$template	CiscoLog, "/var/log/cisco/%HOSTNAME%.log"
+	local7.debug	?CiscoLog
  	# Set tdp/514 as protocol and port
 	module(load="imtdp")
 	input(type="imtdp" port="514")
