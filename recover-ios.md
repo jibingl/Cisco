@@ -1,12 +1,14 @@
-# Upload/Copy an IOS File/Image through Console Connection
+# Recovering IOS File/Image for Cisco Switch/Router
 
-### Boot to ROMMON mode firstly if applicable
-- Make sure switch is power-on and connected at console port through a terminal app, like Tera Term.
-- Power off the switch while keeping the console connection.
+### Boot to ROMMON mode
+Connect a switch/router at console port through a terminal app, like Tera Term.  
+For old model switchs:  
 - Press and hold the "mode" button and then power on the switch.
 - Keep holding the "mode" button untill seeing the ROMMON's cmd prompt on your screen. It is roughly about 15 seconds.
+For routers:
+- Power on the device and keep pressing `break` button of keyboard till ROMMON prompt appears.
 
-### Fellow below commands and steps to copy an ios file through console cable
+### Uploading File over Console Port via `xmodem/ymodem`
 1️⃣ Initiate/Mount flash drive under ROMMON mode so that you can access it.
   ```
   switch: flash_init
@@ -46,3 +48,4 @@
   switch#reload
   ........
   ```
+### Recovering the System Image via `tftpdnld`
