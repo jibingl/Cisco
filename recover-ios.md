@@ -1,14 +1,20 @@
-# Recovering IOS File/Image for Cisco Switch/Router
+# Recovering IOS File/Image from ROMMON Mode
+The commands available in ROMMON mode are vary in different Cisco devices.  Normally, switches has less than routers.  
 
 ### Boot to ROMMON mode
-Connect a switch/router at console port through a terminal app, like Tera Term.  
+Connect a switch/router at console port through a terminal app, like *Tera Term*.  
 For old model switchs:  
-- Press and hold the "mode" button and then power on the switch.
-- Keep holding the "mode" button untill seeing the ROMMON's cmd prompt on your screen. It is roughly about 15 seconds.
+- Press and hold the "mode" button while powering on or reloading the switch.
+- Keep holding the "mode" button untill seeing `switch:` prompt appeared on your terminal, or the `SYST` light on front panel is stable/off. It is roughly about 10-15 seconds.
 For routers:
-- Power on the device and keep pressing `break` button of keyboard till ROMMON prompt appears.
+- Power on or reload the router and keep pressing `break` button of keyboard till `rommon:` prompt appears.
 
 ### Uploading File over Console Port via `xmodem/ymodem`
+The commands using `xmodem` in a switch is different from router. To use `xmodem`, you need levarage `copy` command in a switch, while a router is able to use `xmodem` as a command directly.  
+> Notes: It is not always the case, above experience is based on old Cisco switches and routers manufacturing around 2010s.
+
+Below steps are tested on a switch c2960 series:
+
 1️⃣ Initiate/Mount flash drive under ROMMON mode so that you can access it.
   ```
   switch: flash_init
@@ -49,3 +55,4 @@ For routers:
   ........
   ```
 ### Recovering the System Image via `tftpdnld`
+This method is only available on routers.  
