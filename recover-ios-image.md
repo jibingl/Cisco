@@ -13,27 +13,27 @@ For routers:
 The commands using `xmodem` in a switch is different from router. To use `xmodem`, you need levarage `copy` command in a switch, while a router is able to use `xmodem` as a command directly.  
 > Notes: It is not always the case, above experience is based on old Cisco switches and routers manufacturing around 2010s.
 
-Below steps are tested on a switch c2960 series:
+Below steps are tested on a switch c2960 series:  
 
-1️⃣ Initiate/Mount flash drive under ROMMON mode so that you can access it.
+  1️⃣ Initiate/Mount flash drive under ROMMON mode so that you can access it.
   ```
   switch: flash_init
   switch: dir flash:
   ```
-2️⃣ Increase the speed rates of serial connection. It needs to be done on both sides, switch and TeraTerm.
+  2️⃣ Increase the speed rates of serial connection. It needs to be done on both sides, switch and TeraTerm.
   ```
   switch: set BAUD 115200
   ```
   Edit the searial-rate of the current terminal connection to 115200 as well. Otherwise, you can not type commands on terminal screen properly.  
-3️⃣ Set the switch to be ready to recive the file transsion that costs time as the speed limitation.
+  3️⃣ Set the switch to be ready to recive the file transsion that costs time as the speed limitation.
   ```
   switch: copy xmodem: flash:c2960-lanbasek9-150-2.ie10.bin
   Begin the Xmodem or Xmodem-1K transfer now...
   CCC
   ```
-4️⃣ From the terminal (TeraTerm) main manu select **File > Transfer > XMODEM > Send**, then chose your .bin file to start transission.
+  4️⃣ From the terminal (TeraTerm) main manu select **File > Transfer > XMODEM > Send**, then chose your .bin file to start transission.
 
-5️⃣ Check results, reverse the searial-rate and re-boot switch.
+  5️⃣ Check results, reverse the searial-rate and re-boot switch.
   ```
   File "xmodem:" successfully copied to "Flash:c2960-lanbasek9-150-2.ie10.bin"
   switch: dir flash:
@@ -41,7 +41,7 @@ Below steps are tested on a switch c2960 series:
   switch: boot flash:c2960-lanbasek9-150-2.ie10.bin
   Loading "flash:c2960-lanbasek9-150-2.ie10.bin"...@@@@@@@@@@@@@@@@@@@@@@@@@
   ```
-6️⃣ Enter config mode and set the system boot image.
+  6️⃣ Enter config mode and set the system boot image.
   ```
   switch>enable
   switch#configure terminal
